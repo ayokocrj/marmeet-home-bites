@@ -33,8 +33,13 @@ const ChefSignup = () => {
   ];
 
   const nextStep = () => {
+    console.log('NextStep called, current step:', currentStep);
+    console.log('Form data:', formData);
+    console.log('Can proceed:', canProceed());
+    
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
+      console.log('Moving to step:', currentStep + 1);
     } else {
       // Finaliser l'inscription
       localStorage.setItem('chefProfile', JSON.stringify(formData));
@@ -65,11 +70,20 @@ const ChefSignup = () => {
   };
 
   const canProceed = () => {
+    console.log('Checking canProceed for step:', currentStep);
     switch (currentStep) {
       case 1:
-        return formData.name && formData.address;
+        const step1Valid = formData.name.trim() !== '' && formData.address.trim() !== '';
+        console.log('Step 1 validation:', { name: formData.name, address: formData.address, valid: step1Valid });
+        return step1Valid;
       case 2:
-        return formData.bio || formData.interests.length > 0;
+        const step2Valid = formData.bio.trim() !== '' || formData.interests.length > 0;
+        console.log('Step 2 validation:', { bio: formData.bio, interests: formData.interests, valid: step2Valid });
+        return step2Valid;
+      case 3:
+      case 4:
+      case 5:
+        return true;
       default:
         return true;
     }
@@ -321,9 +335,14 @@ const ChefSignup = () => {
             </Button>
           )}
           <Button
-            onClick={nextStep}
+            onClick={() => {
+              console.log('Button clicked, canProceed:', canProceed());
+              if (canProceed()) {
+                nextStep();
+              }
+            }}
             disabled={!canProceed()}
-            className="flex-1 h-12 bg-white text-marmeet-orange hover:bg-white/90 font-semibold disabled:opacity-50"
+            className="flex-1 h-12 bg-white text-marmeet-orange hover:bg-white/90 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {currentStep === totalSteps ? 'Commencer' : 'Suivant'}
             {currentStep < totalSteps && <ArrowRight className="w-4 h-4 ml-2" />}
