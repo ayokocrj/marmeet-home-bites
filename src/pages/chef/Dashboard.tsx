@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -21,6 +20,7 @@ const ChefDashboard = () => {
 
   // Données simulées
   const chefProfile = {
+    id: 1,
     name: 'Marie Dupont',
     rating: 4.8,
     totalOrders: 127,
@@ -78,6 +78,18 @@ const ChefDashboard = () => {
     navigate('/welcome');
   };
 
+  const handleCreateDish = () => {
+    navigate('/chef/edit-dish');
+  };
+
+  const handleEditDish = (dishId: number) => {
+    navigate(`/chef/edit-dish/${dishId}`);
+  };
+
+  const handleViewProfile = () => {
+    navigate(`/chef/profile/${chefProfile.id}`);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -125,7 +137,10 @@ const ChefDashboard = () => {
           <TabsContent value="dishes" className="space-y-4">
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold text-gray-900">Mes plats</h3>
-              <Button className="bg-gradient-marmeet text-white">
+              <Button 
+                onClick={handleCreateDish}
+                className="bg-gradient-marmeet text-white"
+              >
                 <Plus className="w-4 h-4 mr-2" />
                 Ajouter
               </Button>
@@ -150,10 +165,16 @@ const ChefDashboard = () => {
                       </div>
                     </div>
                     <div className="flex space-x-2">
-                      <button className="p-2 text-gray-400 hover:text-marmeet-orange">
+                      <button 
+                        onClick={handleViewProfile}
+                        className="p-2 text-gray-400 hover:text-marmeet-orange"
+                      >
                         <Eye className="w-4 h-4" />
                       </button>
-                      <button className="p-2 text-gray-400 hover:text-marmeet-orange">
+                      <button 
+                        onClick={() => handleEditDish(dish.id)}
+                        className="p-2 text-gray-400 hover:text-marmeet-orange"
+                      >
                         <Edit className="w-4 h-4" />
                       </button>
                     </div>
@@ -217,11 +238,17 @@ const ChefDashboard = () => {
       {/* Bottom Navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
         <div className="max-w-sm mx-auto grid grid-cols-3 h-16">
-          <button className="flex flex-col items-center justify-center text-xs text-gray-600">
+          <button 
+            onClick={handleViewProfile}
+            className="flex flex-col items-center justify-center text-xs text-gray-600"
+          >
             <Eye className="w-5 h-5 mb-1" />
             Mon Profil
           </button>
-          <button className="flex flex-col items-center justify-center text-xs text-marmeet-orange">
+          <button 
+            onClick={handleCreateDish}
+            className="flex flex-col items-center justify-center text-xs text-marmeet-orange"
+          >
             <Plus className="w-5 h-5 mb-1" />
             Ajouter
           </button>

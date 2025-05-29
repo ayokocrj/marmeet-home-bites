@@ -7,9 +7,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, ArrowRight, Upload, Camera } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const ChefSignup = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     name: '',
@@ -36,6 +38,13 @@ const ChefSignup = () => {
     } else {
       // Finaliser l'inscription
       localStorage.setItem('chefProfile', JSON.stringify(formData));
+      localStorage.setItem('userType', 'chef');
+      
+      toast({
+        title: "Bienvenue sur MARMEET !",
+        description: "Votre profil chef a été créé avec succès",
+      });
+      
       navigate('/chef/dashboard');
     }
   };
@@ -55,6 +64,17 @@ const ChefSignup = () => {
     }));
   };
 
+  const canProceed = () => {
+    switch (currentStep) {
+      case 1:
+        return formData.name && formData.address;
+      case 2:
+        return formData.bio || formData.interests.length > 0;
+      default:
+        return true;
+    }
+  };
+
   const renderStep = () => {
     switch (currentStep) {
       case 1:
@@ -68,7 +88,7 @@ const ChefSignup = () => {
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Votre nom complet
+                  Votre nom complet *
                 </label>
                 <Input
                   placeholder="Ex: Marie Dupont"
@@ -80,7 +100,7 @@ const ChefSignup = () => {
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Adresse complète
+                  Adresse complète *
                 </label>
                 <Input
                   placeholder="Ex: 15 rue de la Paix, 75001 Paris"
@@ -266,7 +286,10 @@ const ChefSignup = () => {
       <div className="max-w-sm mx-auto space-y-6 pt-8">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <button onClick={prevStep} className="p-2 text-white">
+          <button 
+            onClick={currentStep > 1 ? prevStep : () => navigate('/welcome')} 
+            className="p-2 text-white"
+          >
             <ArrowLeft className="w-6 h-6" />
           </button>
           <h1 className="text-xl font-bold text-white">marmeet</h1>
@@ -299,8 +322,8 @@ const ChefSignup = () => {
           )}
           <Button
             onClick={nextStep}
-            disabled={currentStep === 1 && (!formData.name || !formData.address)}
-            className="flex-1 h-12 bg-white text-marmeet-orange hover:bg-white/90 font-semibold"
+            disabled={!canProceed()}
+            className="flex-1 h-12 bg-white text-marmeet-orange hover:bg-white/90 font-semibold disabled:opacity-50"
           >
             {currentStep === totalSteps ? 'Commencer' : 'Suivant'}
             {currentStep < totalSteps && <ArrowRight className="w-4 h-4 ml-2" />}
