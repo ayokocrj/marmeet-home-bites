@@ -12,3 +12,7 @@ channel = "stable-24_05"
 run = ["sh", "-c", "npm run dev"]
 deploymentTarget = "autoscale"
 ignorePorts = false
+
+[[ports]]
+localPort = 8080
+externalPort = 80
