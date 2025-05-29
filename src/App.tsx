@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -18,7 +17,7 @@ import ChefSignup from "./pages/chef/Signup";
 import ChefDashboard from "./pages/chef/Dashboard";
 import ChefProfile from "./pages/chef/Profile";
 import EditDish from "./pages/chef/EditDish";
-
+import ConfirmPickup from './pages/chef/ConfirmPickup';
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,11 +25,11 @@ const queryClient = new QueryClient();
 // Protected Route component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const isAuthenticated = localStorage.getItem('isAuthenticated');
-  
+
   if (!isAuthenticated) {
     return <Navigate to="/welcome" replace />;
   }
-  
+
   return <>{children}</>;
 };
 
@@ -43,7 +42,7 @@ const App = () => (
         <Routes>
           {/* Welcome/Auth */}
           <Route path="/welcome" element={<Welcome />} />
-          
+
           {/* Client Routes */}
           <Route path="/client/onboarding" element={
             <ProtectedRoute>
@@ -70,7 +69,7 @@ const App = () => (
               <Confirmation />
             </ProtectedRoute>
           } />
-          
+
           {/* Chef Routes */}
           <Route path="/chef/signup" element={
             <ProtectedRoute>
@@ -92,10 +91,15 @@ const App = () => (
               <EditDish />
             </ProtectedRoute>
           } />
-          
+          <Route path="/chef/confirm-pickup" element={
+            <ProtectedRoute>
+              <ConfirmPickup />
+            </ProtectedRoute>
+          } />
+
           {/* Default Routes */}
           <Route path="/" element={<Navigate to="/welcome" replace />} />
-          
+
           {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>

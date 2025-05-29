@@ -1,3 +1,5 @@
+export type OrderStatus = 'pending' | 'completed' | 'collected';
+
 export interface Order {
   id: string;
   mealId: string;
@@ -9,4 +11,5 @@ export interface Order {
   status: OrderStatus;
   createdAt: string;
   completedAt?: string;
+  collectedAt?: string;
 }

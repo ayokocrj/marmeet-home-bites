@@ -82,4 +82,27 @@ router.get('/client/:id', async (req, res) => {
   }
 });
 
+// GET /api/orders/:id - Get specific order details
+router.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    if (!id) {
+      return res.status(400).json({ error: 'Order ID is required' });
+    }
+
+    const orders = await readFile<Order[]>('orders.json');
+    const order = orders.find(order => order.id === id);
+
+    if (!order) {
+      return res.status(404).json({ error: 'Order not found' });
+    }
+
+    res.json(order);
+  } catch (error) {
+    console.error('Error fetching order:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 export default router;
