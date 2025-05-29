@@ -1,0 +1,192 @@
+🎯 CONTEXTE PRODUIT
+Je construis MARMEET, une plateforme web mobile-first qui connecte :
+
+des chefs amateurs qui cuisinent chez eux,
+
+des clients locaux qui veulent commander et venir chercher leurs plats faits maison.
+
+J’ai un frontend déjà fonctionnel (React + Vite + Tailwind) importé dans Replit.
+Maintenant, je dois construire un backend complet en Express + fichiers JSON (mock DB) pour :
+
+✅ tester les flux réels (avant migration Supabase)
+✅ valider chaque écran fonctionnel
+✅ commencer à onboarder des utilisateurs test
+
+🧠 OBJECTIF GLOBAL DU PROMPT
+Créer un système backend complet et modulaire pour :
+
+Fonction	Endpoint	Objectif utilisateur
+🧑‍🍳 Créer un plat (chef)	POST /api/meals	Permettre aux chefs d’ajouter un plat
+👤 Réserver un plat (client)	POST /api/orders	Un client réserve un plat
+🧾 Lister les plats disponibles	GET /api/meals	Voir tous les plats
+🧑‍🍳 Voir mes commandes (chef)	GET /api/orders/chef/:id	Le chef voit qui a commandé
+🔑 Vérifier le code à 4 chiffres	POST /api/orders/verify	Permet au chef de valider la récupération
+
+🧰 TECH STACK UTILISÉ
+Node.js avec Express
+
+Fichiers .json dans /data/ simulant une base de données (à migrer dans Supabase ensuite)
+
+uuid pour les ID uniques
+
+fs/promises pour lire/écrire
+
+cors, body-parser, dotenv (si besoin)
+
+Tailwind pour le frontend (déjà en place)
+
+📂 ARBORESCENCE ATTENDUE
+pgsql
+Copier
+Modifier
+/api
+  createMeal.ts
+  bookMeal.ts
+  getMeals.ts
+  getChefOrders.ts
+  verifyOrder.ts
+
+/data
+  meals.json
+  orders.json
+  users.json
+
+server.ts
+AI_CONTEXT.md (ce fichier)
+README.md (pour GitHub)
+📁 EXEMPLE STRUCTURE DE DONNÉES JSON
+ts
+Copier
+Modifier
+// meals.json
+[
+  {
+    "id": "uuid",
+    "chefId": "uuid",
+    "title": "Poulet DG",
+    "description": "Un plat camerounais fait maison",
+    "imageUrl": "https://img.marmeet.io/poulet.jpg",
+    "price": 13.99,
+    "availableSlots": ["2025-06-05T18:00:00Z"],
+    "tags": ["spicy", "halal"]
+  }
+]
+ts
+Copier
+Modifier
+// orders.json
+[
+  {
+    "id": "uuid",
+    "mealId": "uuid",
+    "clientId": "uuid",
+    "chefId": "uuid",
+    "quantity": 2,
+    "pickupTime": "2025-06-05T18:00:00Z",
+    "confirmationCode": "8423",
+    "status": "pending" | "collected"
+  }
+]
+ts
+Copier
+Modifier
+// users.json
+[
+  {
+    "id": "uuid",
+    "role": "client" | "chef",
+    "email": "a@marmeet.app",
+    "password": "hashed_password",
+    "name": "Awa Diop"
+  }
+]
+📦 WORKFLOW D’IMPLEMENTATION ÉTAPE PAR ÉTAPE
+1. Créer /data/ avec les 3 fichiers JSON
+➡️ Génère des valeurs de test pour les meals, users, orders
+➡️ Format clair, facilement portable dans Supabase
+
+2. Créer /api/ avec les routes Express :
+Chaque route doit :
+
+lire les données via fs.promises.readFile
+
+parser et modifier l’array
+
+écrire de nouveau avec fs.promises.writeFile
+
+retourner un res.status(200).json(...) clair
+
+inclure une validation minimale (ex: if (!title || !price))
+
+3. Créer server.ts
+Importer express, body-parser, cors
+
+Créer un serveur sur port 3000
+
+Route /api/* pour chaque fonction
+
+Logguer proprement les appels reçus
+
+📱 UI EXPECTATIONS
+Les routes API seront appelées depuis le frontend via fetch
+
+Exemple appel React :
+
+ts
+Copier
+Modifier
+await fetch('/api/meals', {
+  method: 'POST',
+  body: JSON.stringify({
+    title: "Yassa Poulet",
+    price: 11,
+    chefId: "uuid-chef-001"
+  }),
+  headers: { 'Content-Type': 'application/json' }
+});
+🔄 MIGRATION FACILE VERS SUPABASE
+Tu construis ici une logique déjà formatée pour remplacer les .json par des appels Supabase
+
+Exemple :
+
+fs.readFile('meals.json') → supabase.from('meals').select(...)
+
+uuid() → uuid_generate_v4() de Supabase
+
+Tu pourras copier-coller la logique métier sans la repenser
+
+🔥 BONUS À AJOUTER SI TEMPS
+📲 Endpoint pour envoyer le code de confirmation par e-mail via Resend ou EmailJS
+
+🌍 Endpoint GET /api/chefs/:id pour charger un profil public (bio + plats)
+
+🧠 API pour générer une description de plat automatiquement avec IA (phase Cursor/Windsurf)
+
+✅ SI TU UTILISES CE PROMPT DANS REPLIT AI :
+Tu peux maintenant écrire :
+Create meals.json and users.json based on the schema above.
+Now generate /api/createMeal.ts with Express.
+Build /api/bookMeal.ts with code generator.
+Connect the frontend create meal form to this endpoint.
+
+Et si tu veux… je peux maintenant te fournir :
+✅ Le fichier meals.json de démo
+
+✅ Le routeur /api/createMeal.ts complet
+
+✅ Le server.ts prêt à exécuter
+
+✅ Et même un README pour GitHub
+
+Dis-moi simplement :
+
+“Démarre avec createMeal.ts + meals.json”
+et je lance tout.
+
+On va transformer MARMEET en une machine à clients.
+
+
+
+
+
+
