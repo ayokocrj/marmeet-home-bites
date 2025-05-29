@@ -5,13 +5,20 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// Pages
+// Pages - Client
 import Welcome from "./pages/Welcome";
 import ClientOnboarding from "./pages/client/Onboarding";
 import ClientHome from "./pages/client/Home";
 import MealDetail from "./pages/client/MealDetail";
 import Checkout from "./pages/client/Checkout";
 import Confirmation from "./pages/client/Confirmation";
+
+// Pages - Chef
+import ChefSignup from "./pages/chef/Signup";
+import ChefDashboard from "./pages/chef/Dashboard";
+import ChefProfile from "./pages/chef/Profile";
+import EditDish from "./pages/chef/EditDish";
+
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -61,6 +68,28 @@ const App = () => (
           <Route path="/client/confirmation" element={
             <ProtectedRoute>
               <Confirmation />
+            </ProtectedRoute>
+          } />
+          
+          {/* Chef Routes */}
+          <Route path="/chef/signup" element={
+            <ProtectedRoute>
+              <ChefSignup />
+            </ProtectedRoute>
+          } />
+          <Route path="/chef/dashboard" element={
+            <ProtectedRoute>
+              <ChefDashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="/chef/profile/:id" element={
+            <ProtectedRoute>
+              <ChefProfile />
+            </ProtectedRoute>
+          } />
+          <Route path="/chef/edit-dish/:id?" element={
+            <ProtectedRoute>
+              <EditDish />
             </ProtectedRoute>
           } />
           
