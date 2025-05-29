@@ -1,0 +1,27 @@
+const orders = [
+  {
+    "id": "order-1",
+    "mealId": "meal-1",
+    "clientId": "user-1",
+    "chefId": "user-2",
+    "quantity": 2,
+    "pickupTime": "2024-01-15T18:30:00Z",
+    "confirmationCode": "1234",
+    "status": "pending",
+    "createdAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": "order-2",
+    "mealId": "meal-2",
+    "clientId": "user-3",
+    "chefId": "user-2",
+    "quantity": 1,
+    "pickupTime": "2024-01-15T19:00:00Z",
+    "confirmationCode": "5678",
+    "status": "completed",
+    "createdAt": "2024-01-15T11:00:00Z",
+    "completedAt": "2024-01-15T19:15:00Z"
+  }
+];
+
+console.log(orders);
