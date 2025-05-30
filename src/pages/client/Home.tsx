@@ -87,6 +87,34 @@ const ClientHome = () => {
     },
     {
       id: 2,
+      title: "Sushis traditionnels",
+      description: "Assortiment de nigiri, maki et sashimi préparés selon la tradition japonaise avec du poisson frais",
+      price: 22,
+      cuisine: "Japonais",
+      pickupTime: "19h - 20h30",
+      distance: "0.3km",
+      image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=300&fit=crop",
+      chef: {
+        name: "Yuki T.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+      }
+    },
+    {
+      id: 3,
+      title: "Canard laqué de Pékin",
+      description: "Canard laqué traditionnel aux notes sucrées-salées, servi avec des crêpes et sauce hoisin",
+      price: 28,
+      cuisine: "Chinois",
+      pickupTime: "19h30 - 21h",
+      distance: "0.7km",
+      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
+      chef: {
+        name: "Li W.",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+      }
+    },
+    {
+      id: 4,
       title: "Lasagnes maison",
       description: "Lasagnes traditionnelles avec viande hachée, béchamel et parmesan, cuites au four",
       price: 15,
@@ -100,7 +128,63 @@ const ClientHome = () => {
       }
     },
     {
-      id: 3,
+      id: 5,
+      title: "Poulet à la Moambé",
+      description: "Plat traditionnel angolais avec poulet doré, sauce aux graines de palme, piment et banane",
+      price: 16,
+      cuisine: "Angolais",
+      pickupTime: "18h - 19h30",
+      distance: "1.1km",
+      image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400&h=300&fit=crop",
+      chef: {
+        name: "Maria S.",
+        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b789?w=100&h=100&fit=crop&crop=face"
+      }
+    },
+    {
+      id: 6,
+      title: "Piri-Piri Chicken",
+      description: "Poulet rôti mozambicain avec sauce piquante aux piments piri-piri, ail et citron",
+      price: 18,
+      cuisine: "Mozambicain",
+      pickupTime: "19h - 20h",
+      distance: "0.9km",
+      image: "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=400&h=300&fit=crop",
+      chef: {
+        name: "João M.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+      }
+    },
+    {
+      id: 7,
+      title: "Pierogi polonais",
+      description: "Raviolis traditionnels farcis aux pommes de terre, fromage blanc et oignons caramélisés",
+      price: 13,
+      cuisine: "Polonais",
+      pickupTime: "18h30 - 20h",
+      distance: "0.6km",
+      image: "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=400&h=300&fit=crop",
+      chef: {
+        name: "Anna K.",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+      }
+    },
+    {
+      id: 8,
+      title: "Pastéis de Nata",
+      description: "Tartelettes portugaises à la crème pâtissière, cannelle et sucre glace",
+      price: 8,
+      cuisine: "Portugais",
+      pickupTime: "16h - 18h",
+      distance: "0.4km",
+      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+      chef: {
+        name: "Carlos P.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+      }
+    },
+    {
+      id: 9,
       title: "Couscous royal",
       description: "Couscous traditionnel avec agneau, merguez et légumes, préparé selon la recette familiale",
       price: 18,
@@ -111,6 +195,76 @@ const ClientHome = () => {
       chef: {
         name: "Fatima B.",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+      }
+    },
+    {
+      id: 10,
+      title: "Houmous libanais",
+      description: "Houmous crémeux aux pois chiches, tahini et huile d'olive, servi avec pain pita chaud",
+      price: 10,
+      cuisine: "Libanais",
+      pickupTime: "17h - 19h",
+      distance: "0.7km",
+      image: "https://images.unsplash.com/photo-1571197119318-4e4a4e2c81b3?w=400&h=300&fit=crop",
+      chef: {
+        name: "Leila H.",
+        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b789?w=100&h=100&fit=crop&crop=face"
+      }
+    },
+    {
+      id: 11,
+      title: "Poulet DG camerounais",
+      description: "Poulet sauté aux légumes et plantains, spécialité camerounaise riche et savoureuse",
+      price: 17,
+      cuisine: "Camerounais",
+      pickupTime: "19h - 20h30",
+      distance: "1.0km",
+      image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400&h=300&fit=crop",
+      chef: {
+        name: "Grace N.",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+      }
+    },
+    {
+      id: 12,
+      title: "Attiéké au poisson",
+      description: "Spécialité ivoirienne avec semoule de manioc et poisson grillé aux épices locales",
+      price: 14,
+      cuisine: "Ivoirien",
+      pickupTime: "18h30 - 20h",
+      distance: "0.8km",
+      image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop",
+      chef: {
+        name: "Adjoa K.",
+        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b789?w=100&h=100&fit=crop&crop=face"
+      }
+    },
+    {
+      id: 13,
+      title: "Pavlova néo-zélandaise",
+      description: "Dessert aux blancs d'œufs meringués, crème fouettée et fruits frais de saison",
+      price: 12,
+      cuisine: "Néo-Zélandais",
+      pickupTime: "15h - 17h",
+      distance: "0.5km",
+      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+      chef: {
+        name: "Emma L.",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+      }
+    },
+    {
+      id: 14,
+      title: "Samoussas végétariens",
+      description: "Beignets croustillants farcis aux légumes épicés, accompagnés de chutneys maison",
+      price: 9,
+      cuisine: "Indien",
+      pickupTime: "17h30 - 19h",
+      distance: "0.6km",
+      image: "https://images.unsplash.com/photo-1601050690117-94dc026089ca?w=400&h=300&fit=crop",
+      chef: {
+        name: "Raj P.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
       }
     }
   ];
