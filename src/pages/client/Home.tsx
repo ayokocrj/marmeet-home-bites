@@ -177,7 +177,7 @@ const ClientHome = () => {
       cuisine: "Portugais",
       pickupTime: "16h - 18h",
       distance: "0.4km",
-      image: "https://images.unsplash.com/photo-1509459450241-e86c5c776851?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/19775d7c-3ae5-4780-ae39-bcfe5d30b86b.png",
       chef: {
         name: "Carlos P.",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
@@ -205,7 +205,7 @@ const ClientHome = () => {
       cuisine: "Libanais",
       pickupTime: "17h - 19h",
       distance: "0.7km",
-      image: "https://images.unsplash.com/photo-1541057460827-c2e0003c7042?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/0529c752-1736-4dc5-8439-c516551acb01.png",
       chef: {
         name: "Leila H.",
         avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b789?w=100&h=100&fit=crop&crop=face"
@@ -233,7 +233,7 @@ const ClientHome = () => {
       cuisine: "Ivoirien",
       pickupTime: "18h30 - 20h",
       distance: "0.8km",
-      image: "https://images.unsplash.com/photo-1615937691194-317e2bffcc54?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/f7f8638c-ad58-47c0-85ea-aa46c3e0c90b.png",
       chef: {
         name: "Adjoa K.",
         avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b789?w=100&h=100&fit=crop&crop=face"
