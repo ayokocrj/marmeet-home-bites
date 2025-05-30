@@ -17,14 +17,14 @@ const OnboardingStep = ({
 }) => (
   <div className={`transition-all duration-500 ${isActive ? 'animate-fade-in' : 'opacity-50'}`}>
     <div className="text-center space-y-6">
-      <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto">
+      <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto shadow-warm">
         {icon}
       </div>
       <div className="space-y-4">
-        <h2 className="text-3xl font-bold text-white text-shadow">
+        <h2 className="text-3xl font-bold text-white text-shadow-warm font-poppins">
           {title}
         </h2>
-        <p className="text-white/90 text-lg leading-relaxed px-4">
+        <p className="text-white/90 text-lg leading-relaxed px-4 font-nunito">
           {description}
         </p>
       </div>
@@ -81,7 +81,7 @@ const ClientOnboarding = () => {
               key={index}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentStep 
-                  ? 'bg-white w-8' 
+                  ? 'bg-white w-8 shadow-sm' 
                   : index < currentStep 
                     ? 'bg-white/60' 
                     : 'bg-white/30'
@@ -92,7 +92,7 @@ const ClientOnboarding = () => {
 
         <Button
           onClick={handleNext}
-          className="w-full h-14 bg-white text-marmeet-orange hover:bg-white/90 font-semibold text-lg rounded-xl flex items-center justify-center space-x-2"
+          className="w-full h-14 bg-white text-marmeet-secondary hover:bg-white/90 font-semibold text-lg rounded-xl flex items-center justify-center space-x-2 shadow-warm transition-all duration-200 hover:shadow-warm-lg font-poppins"
         >
           <span>{currentStep === steps.length - 1 ? 'Commencer' : 'Suivant'}</span>
           <ChevronRight className="w-5 h-5" />

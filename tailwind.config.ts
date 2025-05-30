@@ -22,6 +22,8 @@ export default {
 			fontFamily: {
 				'inter': ['Inter', 'system-ui', 'sans-serif'],
 				'poppins': ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+				'raleway': ['Raleway', 'Poppins', 'system-ui', 'sans-serif'],
+				'nunito': ['Nunito', 'Inter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -67,15 +69,37 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
+				// Nouvelle palette MARMEET
 				marmeet: {
-					yellow: '#FBBF24',
+					// Couleurs principales
+					primary: '#FCD34D',        // Jaune doux chaleureux
+					secondary: '#FFA726',      // Orange punchy
+					accent: '#D14D4D',         // Rouge tomate mondial
+					
+					// Variations de jaune
+					yellow: '#FCD34D',
 					'yellow-light': '#FDE68A',
 					'yellow-dark': '#F59E0B',
-					amber: '#EAB308',
-					cream: '#FFFBEB',
-					'cream-soft': '#FEF3C7',
-					gold: '#D97706',
-					'gold-dark': '#B45309'
+					
+					// Variations d'orange
+					orange: '#FFA726',
+					'orange-light': '#FFB74D',
+					'orange-dark': '#FF9800',
+					
+					// Fond et crème
+					cream: '#FFF8E7',          // Fond principal ivoire
+					'cream-soft': '#FFFAEB',
+					'cream-warm': '#FEF3C7',
+					
+					// Textes
+					text: '#1F2937',           // Gris foncé bleuté
+					'text-light': '#374151',
+					'text-muted': '#6B7280',
+					
+					// Accent multiculturel
+					world: '#D14D4D',          // Rouge tomate
+					'world-light': '#EF4444',
+					'world-dark': '#B91C1C'
 				}
 			},
 			borderRadius: {
@@ -122,10 +146,20 @@ export default {
 				},
 				'glow': {
 					'0%, 100%': {
-						filter: 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.3))'
+						filter: 'drop-shadow(0 0 8px rgba(252, 211, 77, 0.3))'
 					},
 					'50%': {
-						filter: 'drop-shadow(0 0 16px rgba(251, 191, 36, 0.6))'
+						filter: 'drop-shadow(0 0 16px rgba(252, 211, 77, 0.6))'
+					}
+				},
+				'warm-pulse': {
+					'0%, 100%': {
+						transform: 'scale(1)',
+						filter: 'drop-shadow(0 4px 8px rgba(255, 167, 38, 0.2))'
+					},
+					'50%': {
+						transform: 'scale(1.02)',
+						filter: 'drop-shadow(0 8px 16px rgba(255, 167, 38, 0.3))'
 					}
 				}
 			},
@@ -134,7 +168,14 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
 				'slide-up': 'slide-up 0.4s ease-out',
-				'glow': 'glow 2s ease-in-out infinite'
+				'glow': 'glow 2s ease-in-out infinite',
+				'warm-pulse': 'warm-pulse 2s ease-in-out infinite'
+			},
+			boxShadow: {
+				'warm': '0 4px 6px -1px rgba(252, 211, 77, 0.1), 0 2px 4px -1px rgba(252, 211, 77, 0.06)',
+				'warm-lg': '0 10px 15px -3px rgba(252, 211, 77, 0.1), 0 4px 6px -2px rgba(252, 211, 77, 0.05)',
+				'orange': '0 4px 6px -1px rgba(255, 167, 38, 0.1), 0 2px 4px -1px rgba(255, 167, 38, 0.06)',
+				'cozy': '0 8px 25px -5px rgba(31, 41, 55, 0.1), 0 8px 10px -6px rgba(31, 41, 55, 0.1)'
 			}
 		}
 	},
