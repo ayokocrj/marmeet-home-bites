@@ -79,7 +79,7 @@ const ClientHome = () => {
       cuisine: "Indien",
       pickupTime: "18h30 - 20h",
       distance: "0.5km",
-      image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=400&h=300&fit=crop",
       chef: {
         name: "Priya K.",
         avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b789?w=100&h=100&fit=crop&crop=face"
@@ -93,7 +93,7 @@ const ClientHome = () => {
       cuisine: "Japonais",
       pickupTime: "19h - 20h30",
       distance: "0.3km",
-      image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=400&h=300&fit=crop",
       chef: {
         name: "Yuki T.",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
@@ -107,7 +107,7 @@ const ClientHome = () => {
       cuisine: "Chinois",
       pickupTime: "19h30 - 21h",
       distance: "0.7km",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=400&h=300&fit=crop",
       chef: {
         name: "Li W.",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
@@ -121,7 +121,7 @@ const ClientHome = () => {
       cuisine: "Italien", 
       pickupTime: "19h - 20h30",
       distance: "0.8km",
-      image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1619895092538-128341789043?w=400&h=300&fit=crop",
       chef: {
         name: "Marco R.",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
@@ -135,7 +135,7 @@ const ClientHome = () => {
       cuisine: "Angolais",
       pickupTime: "18h - 19h30",
       distance: "1.1km",
-      image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=300&fit=crop",
       chef: {
         name: "Maria S.",
         avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b789?w=100&h=100&fit=crop&crop=face"
@@ -149,7 +149,7 @@ const ClientHome = () => {
       cuisine: "Mozambicain",
       pickupTime: "19h - 20h",
       distance: "0.9km",
-      image: "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=400&h=300&fit=crop",
       chef: {
         name: "João M.",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
@@ -163,7 +163,7 @@ const ClientHome = () => {
       cuisine: "Polonais",
       pickupTime: "18h30 - 20h",
       distance: "0.6km",
-      image: "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=300&fit=crop",
       chef: {
         name: "Anna K.",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
@@ -177,7 +177,7 @@ const ClientHome = () => {
       cuisine: "Portugais",
       pickupTime: "16h - 18h",
       distance: "0.4km",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1509459450241-e86c5c776851?w=400&h=300&fit=crop",
       chef: {
         name: "Carlos P.",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
@@ -191,7 +191,7 @@ const ClientHome = () => {
       cuisine: "Maghrébin",
       pickupTime: "19h30 - 21h",
       distance: "1.2km", 
-      image: "https://images.unsplash.com/photo-1609501676725-7186f93fd5ac?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
       chef: {
         name: "Fatima B.",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
@@ -205,7 +205,7 @@ const ClientHome = () => {
       cuisine: "Libanais",
       pickupTime: "17h - 19h",
       distance: "0.7km",
-      image: "https://images.unsplash.com/photo-1571197119318-4e4a4e2c81b3?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1541057460827-c2e0003c7042?w=400&h=300&fit=crop",
       chef: {
         name: "Leila H.",
         avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b789?w=100&h=100&fit=crop&crop=face"
@@ -219,7 +219,7 @@ const ClientHome = () => {
       cuisine: "Camerounais",
       pickupTime: "19h - 20h30",
       distance: "1.0km",
-      image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1515443961218-a51367888e4b?w=400&h=300&fit=crop",
       chef: {
         name: "Grace N.",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
@@ -233,7 +233,7 @@ const ClientHome = () => {
       cuisine: "Ivoirien",
       pickupTime: "18h30 - 20h",
       distance: "0.8km",
-      image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1615937691194-317e2bffcc54?w=400&h=300&fit=crop",
       chef: {
         name: "Adjoa K.",
         avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b789?w=100&h=100&fit=crop&crop=face"
@@ -247,7 +247,7 @@ const ClientHome = () => {
       cuisine: "Néo-Zélandais",
       pickupTime: "15h - 17h",
       distance: "0.5km",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&h=300&fit=crop",
       chef: {
         name: "Emma L.",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
