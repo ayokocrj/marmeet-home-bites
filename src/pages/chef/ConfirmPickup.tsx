@@ -26,7 +26,6 @@ const ConfirmPickup = () => {
     setIsLoading(true);
     
     try {
-      // Simulate API call to verify code
       const response = await fetch('/api/verify', {
         method: 'POST',
         headers: {
@@ -65,24 +64,24 @@ const ConfirmPickup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-marmeet p-4">
+    <div className="min-h-screen bg-gradient-warm p-4">
       <div className="max-w-sm mx-auto space-y-6 pt-8">
         {/* Header */}
         <div className="flex items-center justify-between">
           <button 
             onClick={() => navigate('/chef/dashboard')} 
-            className="p-2 text-white"
+            className="p-2 text-marmeet-gold"
           >
             <ArrowLeft className="w-6 h-6" />
           </button>
-          <h1 className="text-xl font-bold text-white">Confirmer retrait</h1>
+          <h1 className="text-xl font-bold text-marmeet-gold font-poppins">Confirmer retrait</h1>
           <div className="w-10" />
         </div>
 
-        <Card className="p-6 space-y-6">
+        <Card className="p-6 space-y-6 bg-white/95 backdrop-blur-sm shadow-xl border border-marmeet-yellow/20">
           <div className="text-center space-y-2">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
-            <h2 className="text-xl font-semibold">Code de confirmation</h2>
+            <h2 className="text-xl font-semibold font-poppins">Code de confirmation</h2>
             <p className="text-gray-600 text-sm">
               Demandez au client son code à 4 chiffres pour confirmer la remise du plat
             </p>
@@ -90,7 +89,7 @@ const ConfirmPickup = () => {
 
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium mb-2">
+              <label className="block text-sm font-medium mb-2 font-poppins">
                 Code de confirmation
               </label>
               <Input
@@ -98,7 +97,7 @@ const ConfirmPickup = () => {
                 placeholder="1234"
                 value={confirmationCode}
                 onChange={(e) => setConfirmationCode(e.target.value.replace(/\D/g, '').slice(0, 4))}
-                className="text-center text-2xl font-mono tracking-widest"
+                className="text-center text-2xl font-mono tracking-widest border-marmeet-yellow/30 focus:border-marmeet-yellow focus:ring-marmeet-yellow/20"
                 maxLength={4}
               />
             </div>
@@ -106,17 +105,17 @@ const ConfirmPickup = () => {
             <Button 
               onClick={handleVerifyCode}
               disabled={confirmationCode.length !== 4 || isLoading}
-              className="w-full bg-marmeet-orange hover:bg-marmeet-orange/90"
+              className="w-full bg-gradient-marmeet hover:opacity-90 shadow-lg font-poppins"
             >
               {isLoading ? 'Vérification...' : 'Confirmer la remise'}
             </Button>
           </div>
 
-          <div className="bg-blue-50 p-4 rounded-lg">
+          <div className="bg-marmeet-cream p-4 rounded-lg border border-marmeet-yellow/20">
             <div className="flex items-start space-x-3">
-              <AlertCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
-              <div className="text-sm text-blue-700">
-                <p className="font-medium mb-1">Comment ça marche ?</p>
+              <AlertCircle className="w-5 h-5 text-marmeet-gold mt-0.5 flex-shrink-0" />
+              <div className="text-sm text-marmeet-gold">
+                <p className="font-medium mb-1 font-poppins">Comment ça marche ?</p>
                 <p>Le client a reçu un code unique lors de sa commande. Ce code confirme que le bon plat est remis à la bonne personne.</p>
               </div>
             </div>
