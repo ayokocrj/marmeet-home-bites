@@ -30,6 +30,22 @@ const Welcome = () => {
       <div className="min-h-screen bg-gradient-warm flex flex-col items-center justify-center p-4 relative">
         <BackgroundPattern />
         
+        {/* Image d'illustration principale */}
+        <div className="w-full max-w-sm mb-8 relative z-10">
+          <div className="relative rounded-3xl overflow-hidden shadow-warm-lg mb-6">
+            <img 
+              src="/lovable-uploads/19775d7c-3ae5-4780-ae39-bcfe5d30b86b.png"
+              alt="Cuisine du monde" 
+              className="w-full h-48 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+            <div className="absolute bottom-4 left-4 right-4 text-white">
+              <h3 className="font-bold text-lg font-poppins">Saveurs du monde entier</h3>
+              <p className="text-sm opacity-90 font-nunito">Découvrez des cuisines authentiques</p>
+            </div>
+          </div>
+        </div>
+        
         <div className="w-full max-w-sm space-y-8 animate-fade-in relative z-10">
           <div className="text-center space-y-6">
             <div className="mb-6">
@@ -57,6 +73,24 @@ const Welcome = () => {
             <div className="flex items-center justify-center space-x-2 text-marmeet-text-muted">
               <Globe className="w-4 h-4" />
               <span className="text-sm font-nunito">Cuisines du monde entier</span>
+            </div>
+          </div>
+
+          {/* Images en miniature des cuisines */}
+          <div className="flex justify-center space-x-2 mb-6">
+            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-marmeet-primary shadow-warm">
+              <img 
+                src="/lovable-uploads/0529c752-1736-4dc5-8439-c516551acb01.png"
+                alt="Cuisine italienne" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-marmeet-secondary shadow-warm">
+              <img 
+                src="/lovable-uploads/f7f8638c-ad58-47c0-85ea-aa46c3e0c90b.png"
+                alt="Cuisine africaine" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 

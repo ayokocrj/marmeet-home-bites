@@ -39,6 +39,10 @@ export const ChefCard: React.FC<ChefCardProps> = ({ chef, onClick }) => {
           src={chef.avatar} 
           alt={chef.name}
           className="w-full h-full object-cover"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = '/placeholder.svg';
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
       </div>
