@@ -1,79 +1,79 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 45 94% 96%;
-    --foreground: 220 84% 20%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 84% 20%;
+    --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 84% 20%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 45 94% 65%;
+    --primary: 45 96% 64%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 36 100% 87%;
-    --secondary-foreground: 220 47% 11%;
+    --secondary: 47 95% 90%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 45 94% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 36 100% 87%;
-    --accent-foreground: 220 47% 11%;
+    --accent: 47 95% 90%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 45 94% 87%;
-    --input: 45 94% 87%;
-    --ring: 45 94% 65%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 45 96% 64%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 45 94% 98%;
-    --sidebar-foreground: 240 5% 26%;
-    --sidebar-primary: 240 6% 10%;
-    --sidebar-primary-foreground: 45 94% 98%;
-    --sidebar-accent: 45 94% 95%;
-    --sidebar-accent-foreground: 240 6% 10%;
-    --sidebar-border: 45 94% 91%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 220 84% 5%;
+    --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-    --card: 220 84% 5%;
+    --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-    --popover: 220 84% 5%;
+    --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 45 94% 65%;
+    --primary: 45 96% 64%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 217 33% 18%;
+    --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 217 33% 18%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 217 33% 18%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-    --destructive: 0 63% 31%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 18%;
-    --input: 217 33% 18%;
-    --ring: 213 27% 84%;
-    --sidebar-background: 240 6% 10%;
-    --sidebar-foreground: 240 5% 96%;
-    --sidebar-primary: 224 76% 48%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 4% 16%;
-    --sidebar-accent-foreground: 240 5% 96%;
-    --sidebar-border: 240 4% 16%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -83,55 +83,39 @@
   }
 
   body {
-    @apply bg-marmeet-cream text-marmeet-text font-poppins;
-    font-family: 'Poppins', 'Inter', 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    @apply bg-background text-foreground font-poppins;
+    font-family: 'Poppins', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 }
 
 @layer utilities {
   .bg-gradient-marmeet {
-    background: linear-gradient(135deg, #FCD34D 0%, #FFA726 50%, #FF9800 100%);
+    background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #EAB308 100%);
   }
   
-  .bg-gradient-warm {
-    background: linear-gradient(135deg, #FFF8E7 0%, #FFFAEB 50%, #FEF3C7 100%);
+  .bg-gradient-soft {
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
   }
 
-  .bg-gradient-world {
-    background: linear-gradient(135deg, #D14D4D 0%, #EF4444 50%, #F87171 100%);
+  .bg-gradient-warm {
+    background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%);
   }
 
   .text-shadow {
-    text-shadow: 0 2px 4px rgba(31, 41, 55, 0.1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .text-shadow-warm {
-    text-shadow: 0 2px 4px rgba(252, 211, 77, 0.2);
+  .text-shadow-strong {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
   .logo-text {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #FCD34D 0%, #FFA726 50%, #FF9800 100%);
+    background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #EAB308 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-warm-lg hover:-translate-y-1 hover:scale-[1.02];
-  }
-
-  .btn-marmeet {
-    @apply bg-gradient-marmeet text-white font-semibold rounded-xl shadow-warm hover:shadow-warm-lg hover:scale-105 transition-all duration-200;
-  }
-
-  .badge-country {
-    @apply bg-marmeet-world text-white text-xs font-medium px-2 py-1 rounded-full shadow-sm;
-  }
-
-  .input-marmeet {
-    @apply bg-white border-2 border-marmeet-cream-soft focus:border-marmeet-primary focus:ring-marmeet-primary/20 rounded-xl transition-all duration-200;
   }
 }

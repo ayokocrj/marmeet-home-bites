@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
-import { ChefHat, Users, Mail, Lock, ArrowRight, Globe, Flame } from 'lucide-react';
-import { BackgroundPattern } from '@/components/ui/decorative-elements';
+import { ChefHat, Users, Mail, Lock, ArrowRight } from 'lucide-react';
 
 const Welcome = () => {
   const navigate = useNavigate();
@@ -27,111 +26,59 @@ const Welcome = () => {
 
   if (!userType) {
     return (
-      <div className="min-h-screen bg-gradient-warm flex flex-col items-center justify-center p-4 relative">
-        <BackgroundPattern />
-        
-        {/* Image d'illustration principale */}
-        <div className="w-full max-w-sm mb-8 relative z-10">
-          <div className="relative rounded-3xl overflow-hidden shadow-warm-lg mb-6">
-            <img 
-              src="/lovable-uploads/19775d7c-3ae5-4780-ae39-bcfe5d30b86b.png"
-              alt="Cuisine du monde" 
-              className="w-full h-48 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 right-4 text-white">
-              <h3 className="font-bold text-lg font-poppins">Saveurs du monde entier</h3>
-              <p className="text-sm opacity-90 font-nunito">Découvrez des cuisines authentiques</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="w-full max-w-sm space-y-8 animate-fade-in relative z-10">
+      <div className="min-h-screen bg-gradient-warm flex flex-col items-center justify-center p-4">
+        <div className="w-full max-w-sm space-y-8 animate-fade-in">
           <div className="text-center space-y-6">
             <div className="mb-6">
-              <div className="flex items-center justify-center space-x-2 mb-4">
-                <Flame className="w-8 h-8 text-marmeet-secondary animate-glow" />
-                <img 
-                  src="/lovable-uploads/ce65e1e3-f597-4d02-a56f-167ec3683ad9.png" 
-                  alt="MARMEET Logo" 
-                  className="h-16 animate-glow"
-                />
-                <ChefHat className="w-8 h-8 text-marmeet-secondary" />
-              </div>
+              <img 
+                src="/lovable-uploads/ce65e1e3-f597-4d02-a56f-167ec3683ad9.png" 
+                alt="MARMEET Logo" 
+                className="h-16 mx-auto animate-glow"
+              />
             </div>
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold text-marmeet-text text-shadow-warm font-poppins">
+              <h1 className="text-3xl font-bold text-marmeet-gold text-shadow-strong font-poppins">
                 Bienvenue sur
               </h1>
               <h2 className="logo-text text-4xl font-bold">
                 MARMEET
               </h2>
             </div>
-            <p className="text-marmeet-text-light text-lg font-medium font-nunito">
+            <p className="text-marmeet-gold text-lg font-medium">
               Découvrez la cuisine de quartier
             </p>
-            <div className="flex items-center justify-center space-x-2 text-marmeet-text-muted">
-              <Globe className="w-4 h-4" />
-              <span className="text-sm font-nunito">Cuisines du monde entier</span>
-            </div>
-          </div>
-
-          {/* Images en miniature des cuisines */}
-          <div className="flex justify-center space-x-2 mb-6">
-            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-marmeet-primary shadow-warm">
-              <img 
-                src="/lovable-uploads/0529c752-1736-4dc5-8439-c516551acb01.png"
-                alt="Cuisine italienne" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-marmeet-secondary shadow-warm">
-              <img 
-                src="/lovable-uploads/f7f8638c-ad58-47c0-85ea-aa46c3e0c90b.png"
-                alt="Cuisine africaine" 
-                className="w-full h-full object-cover"
-              />
-            </div>
           </div>
 
           <div className="space-y-4">
             <Card 
-              className="p-6 cursor-pointer card-hover shadow-warm border-2 border-transparent hover:border-marmeet-primary/30 bg-white/95 backdrop-blur-sm rounded-2xl"
+              className="p-6 cursor-pointer hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-marmeet-yellow/30 bg-white/90 backdrop-blur-sm"
               onClick={() => setUserType('client')}
             >
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-marmeet rounded-full flex items-center justify-center shadow-warm">
+                <div className="w-12 h-12 bg-gradient-marmeet rounded-full flex items-center justify-center shadow-lg">
                   <Users className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-marmeet-text font-poppins">
-                    Je veux commander
-                  </h3>
-                  <p className="text-sm text-marmeet-text-muted font-nunito">
-                    Découvrir des plats faits maison
-                  </p>
+                  <h3 className="font-semibold text-gray-900 font-poppins">Je veux commander</h3>
+                  <p className="text-sm text-gray-600">Découvrir des plats faits maison</p>
                 </div>
-                <ArrowRight className="w-5 h-5 text-marmeet-secondary" />
+                <ArrowRight className="w-5 h-5 text-marmeet-yellow" />
               </div>
             </Card>
 
             <Card 
-              className="p-6 cursor-pointer card-hover shadow-warm border-2 border-transparent hover:border-marmeet-primary/30 bg-white/95 backdrop-blur-sm rounded-2xl"
+              className="p-6 cursor-pointer hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-marmeet-yellow/30 bg-white/90 backdrop-blur-sm"
               onClick={() => setUserType('chef')}
             >
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-warm border-2 border-marmeet-primary/20">
-                  <ChefHat className="w-6 h-6 text-marmeet-secondary" />
+                <div className="w-12 h-12 bg-gradient-soft rounded-full flex items-center justify-center shadow-lg border-2 border-marmeet-yellow/20">
+                  <ChefHat className="w-6 h-6 text-marmeet-gold" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-marmeet-text font-poppins">
-                    Je veux cuisiner
-                  </h3>
-                  <p className="text-sm text-marmeet-text-muted font-nunito">
-                    Partager mes créations culinaires
-                  </p>
+                  <h3 className="font-semibold text-gray-900 font-poppins">Je veux cuisiner</h3>
+                  <p className="text-sm text-gray-600">Partager mes créations culinaires</p>
                 </div>
-                <ArrowRight className="w-5 h-5 text-marmeet-secondary" />
+                <ArrowRight className="w-5 h-5 text-marmeet-yellow" />
               </div>
             </Card>
           </div>
@@ -141,53 +88,48 @@ const Welcome = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-warm flex flex-col items-center justify-center p-4 relative">
-      <BackgroundPattern />
-      
-      <div className="w-full max-w-sm space-y-8 animate-slide-up relative z-10">
+    <div className="min-h-screen bg-gradient-warm flex flex-col items-center justify-center p-4">
+      <div className="w-full max-w-sm space-y-8 animate-slide-up">
         <div className="text-center space-y-4">
           <div className="mb-4">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <Flame className="w-6 h-6 text-marmeet-secondary animate-glow" />
-              <img 
-                src="/lovable-uploads/ce65e1e3-f597-4d02-a56f-167ec3683ad9.png" 
-                alt="MARMEET Logo" 
-                className="h-12"
-              />
-            </div>
+            <img 
+              src="/lovable-uploads/ce65e1e3-f597-4d02-a56f-167ec3683ad9.png" 
+              alt="MARMEET Logo" 
+              className="h-12 mx-auto"
+            />
           </div>
           <h1 className="logo-text text-3xl font-bold">
             MARMEET
           </h1>
-          <p className="text-marmeet-text-light font-medium font-nunito">
+          <p className="text-marmeet-gold font-medium">
             {userType === 'client' ? 'Connectez-vous pour commander' : 'Rejoignez nos chefs'}
           </p>
         </div>
 
-        <Card className="p-6 space-y-6 bg-white/95 backdrop-blur-sm shadow-warm-lg border border-marmeet-primary/20 rounded-2xl">
+        <Card className="p-6 space-y-6 bg-white/95 backdrop-blur-sm shadow-xl border border-marmeet-yellow/20">
           <div className="space-y-4">
             <div className="space-y-2">
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-marmeet-secondary" />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-marmeet-gold" />
                 <Input
                   type="email"
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 h-12 input-marmeet font-nunito rounded-xl"
+                  className="pl-10 h-12 border-marmeet-yellow/30 focus:border-marmeet-yellow focus:ring-marmeet-yellow/20"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-marmeet-secondary" />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-marmeet-gold" />
                 <Input
                   type="password"
                   placeholder="Mot de passe"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 h-12 input-marmeet font-nunito rounded-xl"
+                  className="pl-10 h-12 border-marmeet-yellow/30 focus:border-marmeet-yellow focus:ring-marmeet-yellow/20"
                 />
               </div>
             </div>
@@ -195,7 +137,7 @@ const Welcome = () => {
 
           <Button
             onClick={handleAuth}
-            className="w-full h-12 btn-marmeet font-poppins rounded-xl"
+            className="w-full h-12 bg-gradient-marmeet hover:opacity-90 text-white font-semibold rounded-xl shadow-lg font-poppins"
           >
             {isLogin ? 'Se connecter' : 'Créer un compte'}
           </Button>
@@ -203,7 +145,7 @@ const Welcome = () => {
           <div className="text-center space-y-2">
             <button
               onClick={() => setIsLogin(!isLogin)}
-              className="text-sm text-marmeet-text-light hover:text-marmeet-secondary transition-colors font-medium font-nunito"
+              className="text-sm text-marmeet-gold hover:text-marmeet-gold/80 transition-colors font-medium"
             >
               {isLogin ? "Pas de compte ? S'inscrire" : "Déjà un compte ? Se connecter"}
             </button>
@@ -212,7 +154,7 @@ const Welcome = () => {
 
         <button
           onClick={() => setUserType(null)}
-          className="w-full text-marmeet-text-light/80 text-sm hover:text-marmeet-text-light transition-colors font-medium font-nunito"
+          className="w-full text-marmeet-gold/80 text-sm hover:text-marmeet-gold transition-colors font-medium"
         >
           ← Retour au choix
         </button>

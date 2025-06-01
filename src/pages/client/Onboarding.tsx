@@ -2,8 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, MapPin, Clock, Heart, Flame, ChefHat } from 'lucide-react';
-import { BackgroundPattern } from '@/components/ui/decorative-elements';
+import { ChevronRight, MapPin, Clock, Heart } from 'lucide-react';
 
 const OnboardingStep = ({ 
   title, 
@@ -18,14 +17,14 @@ const OnboardingStep = ({
 }) => (
   <div className={`transition-all duration-500 ${isActive ? 'animate-fade-in' : 'opacity-50'}`}>
     <div className="text-center space-y-6">
-      <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto shadow-warm border-2 border-white/30">
+      <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto">
         {icon}
       </div>
       <div className="space-y-4">
-        <h2 className="text-3xl font-bold text-white text-shadow-warm font-poppins">
+        <h2 className="text-3xl font-bold text-white text-shadow">
           {title}
         </h2>
-        <p className="text-white/90 text-lg leading-relaxed px-4 font-nunito">
+        <p className="text-white/90 text-lg leading-relaxed px-4">
           {description}
         </p>
       </div>
@@ -64,22 +63,8 @@ const ClientOnboarding = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-marmeet flex flex-col relative overflow-hidden">
-      <BackgroundPattern />
-      
-      {/* Header avec logo */}
-      <div className="text-center pt-8 pb-4 relative z-10">
-        <div className="flex items-center justify-center space-x-2 mb-2">
-          <Flame className="w-6 h-6 text-white animate-glow" />
-          <h1 className="text-2xl font-bold text-white font-poppins">MARMEET</h1>
-          <ChefHat className="w-6 h-6 text-white" />
-        </div>
-        <p className="text-white/80 text-sm font-nunito">
-          Bienvenue dans votre cuisine de quartier
-        </p>
-      </div>
-
-      <div className="flex-1 flex flex-col items-center justify-center p-6 relative z-10">
+    <div className="min-h-screen bg-gradient-marmeet flex flex-col">
+      <div className="flex-1 flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-sm">
           <OnboardingStep
             {...steps[currentStep]}
@@ -88,18 +73,18 @@ const ClientOnboarding = () => {
         </div>
       </div>
 
-      <div className="p-6 space-y-6 relative z-10">
+      <div className="p-6 space-y-6">
         {/* Progress indicators */}
         <div className="flex justify-center space-x-2">
           {steps.map((_, index) => (
             <div
               key={index}
-              className={`h-2 rounded-full transition-all duration-300 ${
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentStep 
-                  ? 'bg-white w-8 shadow-sm' 
+                  ? 'bg-white w-8' 
                   : index < currentStep 
-                    ? 'bg-white/60 w-2' 
-                    : 'bg-white/30 w-2'
+                    ? 'bg-white/60' 
+                    : 'bg-white/30'
               }`}
             />
           ))}
@@ -107,9 +92,9 @@ const ClientOnboarding = () => {
 
         <Button
           onClick={handleNext}
-          className="w-full h-14 bg-white text-marmeet-secondary hover:bg-white/90 font-semibold text-lg rounded-xl flex items-center justify-center space-x-2 shadow-warm transition-all duration-200 hover:shadow-warm-lg font-poppins"
+          className="w-full h-14 bg-white text-marmeet-orange hover:bg-white/90 font-semibold text-lg rounded-xl flex items-center justify-center space-x-2"
         >
-          <span>{currentStep === steps.length - 1 ? 'Commencer ma découverte' : 'Suivant'}</span>
+          <span>{currentStep === steps.length - 1 ? 'Commencer' : 'Suivant'}</span>
           <ChevronRight className="w-5 h-5" />
         </Button>
       </div>
