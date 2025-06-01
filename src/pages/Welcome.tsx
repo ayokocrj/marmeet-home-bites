@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -77,9 +76,43 @@ const Welcome = () => {
 
   if (!userType) {
     return (
-      <div className="min-h-screen bg-gradient-warm overflow-hidden">
+      <div className="min-h-screen bg-gradient-warm overflow-hidden relative">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              radial-gradient(circle at 20% 30%, #FBBF24 1px, transparent 1px),
+              radial-gradient(circle at 80% 70%, #F59E0B 1px, transparent 1px),
+              radial-gradient(circle at 40% 80%, #EAB308 1px, transparent 1px),
+              radial-gradient(circle at 90% 20%, #FBBF24 1px, transparent 1px),
+              radial-gradient(circle at 10% 90%, #F59E0B 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px, 80px 80px, 100px 100px, 120px 120px, 90px 90px'
+          }} />
+        </div>
+        
+        {/* Subtle Food Icons Pattern */}
+        <div className="absolute inset-0 opacity-3">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%23FBBF24' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")
+            `,
+            backgroundSize: '120px 120px'
+          }} />
+        </div>
+
+        {/* Decorative Spice Pattern */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-8">
+          <div className="absolute top-10 left-5 w-2 h-2 bg-marmeet-yellow/20 rounded-full animate-pulse" />
+          <div className="absolute top-32 right-8 w-1.5 h-1.5 bg-marmeet-amber/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-64 left-12 w-2.5 h-2.5 bg-marmeet-gold/15 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute bottom-32 right-6 w-2 h-2 bg-marmeet-yellow/15 rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+          <div className="absolute bottom-64 left-8 w-1.5 h-1.5 bg-marmeet-amber/20 rounded-full animate-pulse" style={{ animationDelay: '4s' }} />
+          <div className="absolute top-48 right-16 w-2 h-2 bg-marmeet-gold/20 rounded-full animate-pulse" style={{ animationDelay: '5s' }} />
+        </div>
+
         {/* Hero Section */}
-        <div className="relative pt-8 pb-12">
+        <div className="relative pt-8 pb-12 z-10">
           <div className="text-center space-y-6 px-4">
             <div className="mb-8">
               <img 
@@ -166,7 +199,7 @@ const Welcome = () => {
         </div>
 
         {/* User Type Selection */}
-        <div className="px-4 pb-8">
+        <div className="px-4 pb-8 relative z-10">
           <div className="space-y-4 max-w-sm mx-auto">
             <Card 
               className="p-6 cursor-pointer hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-marmeet-yellow/30 bg-white/95 backdrop-blur-sm"
@@ -206,8 +239,19 @@ const Welcome = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-warm flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-sm space-y-8 animate-slide-up">
+    <div className="min-h-screen bg-gradient-warm flex flex-col items-center justify-center p-4 relative">
+      {/* Background Pattern for Login Screen */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            radial-gradient(circle at 25% 25%, #FBBF24 1px, transparent 1px),
+            radial-gradient(circle at 75% 75%, #F59E0B 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px, 70px 70px'
+        }} />
+      </div>
+
+      <div className="w-full max-w-sm space-y-8 animate-slide-up relative z-10">
         <div className="text-center space-y-4">
           <div className="mb-4">
             <img 

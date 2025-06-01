@@ -118,4 +118,16 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .opacity-3 {
+    opacity: 0.03;
+  }
+
+  .opacity-5 {
+    opacity: 0.05;
+  }
+
+  .opacity-8 {
+    opacity: 0.08;
+  }
 }
