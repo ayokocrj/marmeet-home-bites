@@ -1,18 +1,53 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, MapPin, Filter } from 'lucide-react';
+import { Search, MapPin, Filter, ShoppingBag } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { HeroSection } from '@/components/ui/hero-section';
 import { CuisineFilters } from '@/components/ui/cuisine-filters';
 import { ChefCard } from '@/components/ui/chef-card';
+import { DiscoverySection } from '@/components/ui/discovery-section';
+import { AdvancedFilters } from '@/components/ui/advanced-filters';
+import { CartDrawer } from '@/components/ui/cart-drawer';
 import { BackgroundPattern } from '@/components/ui/decorative-elements';
 
 const ClientHome = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCuisine, setSelectedCuisine] = useState('Tout');
+  const [showFilters, setShowFilters] = useState(false);
+  const [showCart, setShowCart] = useState(false);
+  const [cartItems, setCartItems] = useState<any[]>([]);
+
+  // Load cart from localStorage
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem('cart') || '[]');
+    setCartItems(savedCart);
+  }, []);
+
+  // Update cart in localStorage
+  const updateCart = (newCart: any[]) => {
+    setCartItems(newCart);
+    localStorage.setItem('cart', JSON.stringify(newCart));
+  };
+
+  const updateCartQuantity = (id: string, quantity: number) => {
+    if (quantity === 0) {
+      removeFromCart(id);
+      return;
+    }
+    const updatedCart = cartItems.map(item =>
+      item.id === id ? { ...item, quantity } : item
+    );
+    updateCart(updatedCart);
+  };
+
+  const removeFromCart = (id: string) => {
+    const updatedCart = cartItems.filter(item => item.id !== id);
+    updateCart(updatedCart);
+  };
+
+  const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   // Données simulées des chefs avec vos images uploadées
   const chefs = [
@@ -113,14 +148,31 @@ const ClientHome = () => {
                 placeholder="Rechercher un plat, un chef..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 h-12 bg-white border-marmeet-primary/30 rounded-2xl shadow-warm font-nunito"
+                className="pl-10 pr-20 h-12 bg-white border-marmeet-primary/30 rounded-2xl shadow-warm font-nunito"
               />
-              <Button
-                size="sm"
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-marmeet-primary hover:bg-marmeet-secondary rounded-xl"
-              >
-                <Filter className="w-4 h-4" />
-              </Button>
+              <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex space-x-1">
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="bg-marmeet-primary hover:bg-marmeet-secondary text-white rounded-xl h-8 w-8 p-0"
+                  onClick={() => setShowFilters(true)}
+                >
+                  <Filter className="w-4 h-4" />
+                </Button>
+                {cartItemCount > 0 && (
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    className="bg-marmeet-secondary hover:bg-marmeet-primary text-white rounded-xl h-8 w-8 p-0 relative"
+                    onClick={() => setShowCart(true)}
+                  >
+                    <ShoppingBag className="w-4 h-4" />
+                    <div className="absolute -top-1 -right-1 bg-marmeet-world text-white text-xs rounded-full h-4 w-4 flex items-center justify-center font-bold">
+                      {cartItemCount}
+                    </div>
+                  </Button>
+                )}
+              </div>
             </div>
 
             {/* Address Banner */}
@@ -137,6 +189,9 @@ const ClientHome = () => {
 
         {/* Cuisine Filters */}
         <CuisineFilters onFilterChange={setSelectedCuisine} />
+
+        {/* Discovery Section */}
+        <DiscoverySection />
 
         {/* Chefs Grid */}
         <div className="px-4 pb-20">
@@ -174,6 +229,21 @@ const ClientHome = () => {
           </div>
         </div>
       </div>
+
+      {/* Modals */}
+      <AdvancedFilters 
+        isOpen={showFilters} 
+        onClose={() => setShowFilters(false)}
+        onFilterChange={(filters) => console.log('Filters applied:', filters)}
+      />
+      
+      <CartDrawer
+        isOpen={showCart}
+        onClose={() => setShowCart(false)}
+        items={cartItems}
+        onUpdateQuantity={updateCartQuantity}
+        onRemoveItem={removeFromCart}
+      />
     </div>
   );
 };
