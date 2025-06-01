@@ -5,6 +5,10 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useNavigate } from 'react-router-dom';
+import { HeroSection } from '@/components/ui/hero-section';
+import { CuisineFilters } from '@/components/ui/cuisine-filters';
+import { ChefCard } from '@/components/ui/chef-card';
+import { BackgroundPattern } from '@/components/ui/decorative-elements';
 
 const MealCard = ({ 
   meal, 
@@ -14,7 +18,7 @@ const MealCard = ({
   onClick: () => void;
 }) => (
   <Card 
-    className="overflow-hidden cursor-pointer card-hover shadow-warm bg-white"
+    className="overflow-hidden cursor-pointer card-hover shadow-warm bg-white rounded-2xl"
     onClick={onClick}
   >
     <div className="relative">
@@ -24,16 +28,22 @@ const MealCard = ({
         className="w-full h-48 object-cover"
       />
       <div className="absolute top-3 left-3">
-        <Badge className="bg-marmeet-world text-white font-medium text-xs px-3 py-1 shadow-sm">
+        <Badge className="bg-marmeet-world text-white font-medium text-xs px-3 py-1 shadow-sm rounded-full">
           {meal.flag} {meal.cuisine}
         </Badge>
       </div>
       <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm rounded-full p-2 shadow-sm hover:bg-white transition-all duration-200">
         <Heart className="w-4 h-4 text-marmeet-world hover:fill-current transition-all duration-200" />
       </div>
+      <div className="absolute bottom-3 right-3">
+        <div className="flex items-center space-x-1 bg-white/95 backdrop-blur-sm px-2 py-1 rounded-full">
+          <Star className="w-3 h-3 text-marmeet-primary fill-current" />
+          <span className="text-xs font-medium text-marmeet-text">4.8</span>
+        </div>
+      </div>
     </div>
     
-    <div className="p-4 space-y-3">
+    <div className="p-4 space-y-3 bg-gradient-warm">
       <div className="space-y-1">
         <h3 className="font-semibold text-lg leading-tight font-poppins text-marmeet-text">
           {meal.title}
@@ -59,7 +69,7 @@ const MealCard = ({
         <img 
           src={meal.chef.avatar} 
           alt={meal.chef.name}
-          className="w-6 h-6 rounded-full border border-marmeet-primary/20"
+          className="w-6 h-6 rounded-full border-2 border-marmeet-primary/20"
         />
         <span className="text-sm text-marmeet-text-light font-medium font-nunito">
           {meal.chef.name}
@@ -71,6 +81,10 @@ const MealCard = ({
           </span>
         </div>
       </div>
+      
+      <Button className="w-full btn-marmeet h-10 font-poppins rounded-xl">
+        Réserver maintenant
+      </Button>
     </div>
   </Card>
 );
@@ -78,6 +92,7 @@ const MealCard = ({
 const ClientHome = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCuisine, setSelectedCuisine] = useState('Tout');
 
   const mockMeals = [
     {
@@ -292,9 +307,65 @@ const ClientHome = () => {
     }
   ];
 
+  const mockChefs = [
+    {
+      id: "chef1",
+      name: "Asha",
+      cuisine: "Indien",
+      flag: "🇮🇳",
+      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b789?w=300&h=300&fit=crop&crop=face",
+      rating: 4.9,
+      price: "12",
+      distance: "0.5km",
+      specialty: "Spécialiste des currys traditionnels"
+    },
+    {
+      id: "chef2",
+      name: "Kenji",
+      cuisine: "Japonais",
+      flag: "🇯🇵",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+      rating: 4.8,
+      price: "15",
+      distance: "0.3km",
+      specialty: "Sushi et plats traditionnels"
+    },
+    {
+      id: "chef3",
+      name: "Fatou",
+      cuisine: "Sénégalais",
+      flag: "🇸🇳",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
+      rating: 4.7,
+      price: "14",
+      distance: "0.8km",
+      specialty: "Thiéboudienne et yassa"
+    },
+    {
+      id: "chef4",
+      name: "Ahmed",
+      cuisine: "Marocain",
+      flag: "🇲🇦",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+      rating: 4.9,
+      price: "16",
+      distance: "0.6km",
+      specialty: "Tagines et couscous royal"
+    }
+  ];
+
+  const filteredMeals = selectedCuisine === 'Tout' 
+    ? mockMeals 
+    : mockMeals.filter(meal => meal.cuisine === selectedCuisine);
+
   return (
-    <div className="min-h-screen bg-marmeet-cream">
-      {/* Header */}
+    <div className="min-h-screen bg-marmeet-cream relative">
+      <BackgroundPattern />
+      
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* Search Section */}
       <div className="bg-white shadow-warm sticky top-0 z-10">
         <div className="p-4 space-y-4">
           <div className="flex items-center justify-between">
@@ -318,7 +389,7 @@ const ClientHome = () => {
               placeholder="Rechercher un plat, cuisine..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 h-12 input-marmeet font-nunito text-marmeet-text"
+              className="pl-10 h-12 input-marmeet font-nunito text-marmeet-text rounded-xl"
             />
           </div>
         </div>
@@ -336,6 +407,33 @@ const ClientHome = () => {
         </div>
       </div>
 
+      {/* Cuisine Filters */}
+      <CuisineFilters onFilterChange={setSelectedCuisine} />
+
+      {/* Featured Chefs Section */}
+      <div className="p-4">
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-semibold text-marmeet-text font-poppins">
+              Chefs populaires
+            </h2>
+            <Button variant="ghost" className="text-marmeet-secondary font-nunito">
+              Voir tout
+            </Button>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4">
+            {mockChefs.slice(0, 2).map((chef) => (
+              <ChefCard
+                key={chef.id}
+                chef={chef}
+                onClick={() => navigate(`/client/chef/${chef.id}`)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Meals Grid */}
       <div className="p-4">
         <div className="space-y-4">
@@ -344,12 +442,12 @@ const ClientHome = () => {
               Plats disponibles
             </h2>
             <span className="text-sm text-marmeet-text-muted font-nunito">
-              {mockMeals.length} plats
+              {filteredMeals.length} plats
             </span>
           </div>
           
           <div className="grid grid-cols-1 gap-4">
-            {mockMeals.map((meal) => (
+            {filteredMeals.map((meal) => (
               <MealCard
                 key={meal.id}
                 meal={meal}

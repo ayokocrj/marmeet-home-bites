@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
-import { ChefHat, Users, Mail, Lock, ArrowRight, Globe } from 'lucide-react';
+import { ChefHat, Users, Mail, Lock, ArrowRight, Globe, Flame } from 'lucide-react';
+import { BackgroundPattern } from '@/components/ui/decorative-elements';
 
 const Welcome = () => {
   const navigate = useNavigate();
@@ -26,15 +27,21 @@ const Welcome = () => {
 
   if (!userType) {
     return (
-      <div className="min-h-screen bg-gradient-warm flex flex-col items-center justify-center p-4">
-        <div className="w-full max-w-sm space-y-8 animate-fade-in">
+      <div className="min-h-screen bg-gradient-warm flex flex-col items-center justify-center p-4 relative">
+        <BackgroundPattern />
+        
+        <div className="w-full max-w-sm space-y-8 animate-fade-in relative z-10">
           <div className="text-center space-y-6">
             <div className="mb-6">
-              <img 
-                src="/lovable-uploads/ce65e1e3-f597-4d02-a56f-167ec3683ad9.png" 
-                alt="MARMEET Logo" 
-                className="h-16 mx-auto animate-glow"
-              />
+              <div className="flex items-center justify-center space-x-2 mb-4">
+                <Flame className="w-8 h-8 text-marmeet-secondary animate-glow" />
+                <img 
+                  src="/lovable-uploads/ce65e1e3-f597-4d02-a56f-167ec3683ad9.png" 
+                  alt="MARMEET Logo" 
+                  className="h-16 animate-glow"
+                />
+                <ChefHat className="w-8 h-8 text-marmeet-secondary" />
+              </div>
             </div>
             <div className="space-y-2">
               <h1 className="text-3xl font-bold text-marmeet-text text-shadow-warm font-poppins">
@@ -55,7 +62,7 @@ const Welcome = () => {
 
           <div className="space-y-4">
             <Card 
-              className="p-6 cursor-pointer card-hover shadow-warm border-2 border-transparent hover:border-marmeet-primary/30 bg-white/95 backdrop-blur-sm"
+              className="p-6 cursor-pointer card-hover shadow-warm border-2 border-transparent hover:border-marmeet-primary/30 bg-white/95 backdrop-blur-sm rounded-2xl"
               onClick={() => setUserType('client')}
             >
               <div className="flex items-center space-x-4">
@@ -75,7 +82,7 @@ const Welcome = () => {
             </Card>
 
             <Card 
-              className="p-6 cursor-pointer card-hover shadow-warm border-2 border-transparent hover:border-marmeet-primary/30 bg-white/95 backdrop-blur-sm"
+              className="p-6 cursor-pointer card-hover shadow-warm border-2 border-transparent hover:border-marmeet-primary/30 bg-white/95 backdrop-blur-sm rounded-2xl"
               onClick={() => setUserType('chef')}
             >
               <div className="flex items-center space-x-4">
@@ -100,15 +107,20 @@ const Welcome = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-warm flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-sm space-y-8 animate-slide-up">
+    <div className="min-h-screen bg-gradient-warm flex flex-col items-center justify-center p-4 relative">
+      <BackgroundPattern />
+      
+      <div className="w-full max-w-sm space-y-8 animate-slide-up relative z-10">
         <div className="text-center space-y-4">
           <div className="mb-4">
-            <img 
-              src="/lovable-uploads/ce65e1e3-f597-4d02-a56f-167ec3683ad9.png" 
-              alt="MARMEET Logo" 
-              className="h-12 mx-auto"
-            />
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <Flame className="w-6 h-6 text-marmeet-secondary animate-glow" />
+              <img 
+                src="/lovable-uploads/ce65e1e3-f597-4d02-a56f-167ec3683ad9.png" 
+                alt="MARMEET Logo" 
+                className="h-12"
+              />
+            </div>
           </div>
           <h1 className="logo-text text-3xl font-bold">
             MARMEET
@@ -118,7 +130,7 @@ const Welcome = () => {
           </p>
         </div>
 
-        <Card className="p-6 space-y-6 bg-white/95 backdrop-blur-sm shadow-warm-lg border border-marmeet-primary/20">
+        <Card className="p-6 space-y-6 bg-white/95 backdrop-blur-sm shadow-warm-lg border border-marmeet-primary/20 rounded-2xl">
           <div className="space-y-4">
             <div className="space-y-2">
               <div className="relative">
@@ -128,7 +140,7 @@ const Welcome = () => {
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 h-12 input-marmeet font-nunito"
+                  className="pl-10 h-12 input-marmeet font-nunito rounded-xl"
                 />
               </div>
             </div>
@@ -141,7 +153,7 @@ const Welcome = () => {
                   placeholder="Mot de passe"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 h-12 input-marmeet font-nunito"
+                  className="pl-10 h-12 input-marmeet font-nunito rounded-xl"
                 />
               </div>
             </div>
@@ -149,7 +161,7 @@ const Welcome = () => {
 
           <Button
             onClick={handleAuth}
-            className="w-full h-12 btn-marmeet font-poppins"
+            className="w-full h-12 btn-marmeet font-poppins rounded-xl"
           >
             {isLogin ? 'Se connecter' : 'Créer un compte'}
           </Button>
